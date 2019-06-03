@@ -1,14 +1,6 @@
 import React from 'react';
+import SignIn from '../components/SignIn';
 
 export default function Login() {
-  return <LoginPage />;
+  return <SignIn />;
 }
-
-const LoginPage = () => (
-  <div>
-    <h1>Login</h1>
-    <div>
-          Login Page
-    </div>
-  </div>
-);

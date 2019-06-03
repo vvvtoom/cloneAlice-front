@@ -5,8 +5,7 @@ import {
   BrowserRouter as Router, Route, Redirect, Switch,
 } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
-import Home from './pages/Home';
-import Login from './pages/Login';
+import { Home, Login, Register } from './pages';
 import * as serviceWorker from './serviceWorker';
 
 const customHistory = createBrowserHistory();
@@ -14,6 +13,7 @@ const Root = () => (
   <Router history={customHistory}>
     <Switch>
       <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Route path="/app/home" component={Home} />
       <Redirect exact from="/" to="/login" />
     </Switch>
