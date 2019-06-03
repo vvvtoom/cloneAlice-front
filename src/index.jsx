@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {
-  BrowserRouter as Router, Route, Redirect, Switch,
+  Router, Route, Redirect, Switch,
 } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import { Home, Login, Register } from './pages';
 import * as serviceWorker from './serviceWorker';
 
