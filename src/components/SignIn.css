@@ -1,0 +1,43 @@
+.signin-paper {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.signin-form {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.signin-submit {
+  margin: 24px 0 16px !important;
+}
+
+.social-login {
+  margin-top: 8px;
+}
+
+.social-login > button {
+  margin-top: 8px;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.alert-link {
+  color: #843534 !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.alert-link:hover {
+  text-decoration: underline;
+}
