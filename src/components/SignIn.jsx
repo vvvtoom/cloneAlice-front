@@ -25,9 +25,15 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  socialLogin: {
+    marginTop: theme.spacing(1),
+  },
+  socialButton: {
+    marginTop: theme.spacing(1),
+  },
 }));
 
-export default function SignIn({ handleGoogleLogin }) {
+export default function SignIn({ handleLogin }) {
   const classes = useStyles();
 
   return (
@@ -73,27 +79,39 @@ export default function SignIn({ handleGoogleLogin }) {
           >
             Sign In
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="/register" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
+          <Link href="/register" variant="body2">
+            {"Don't have an account? Sign Up"}
+          </Link>
         </form>
       </div>
-      <Button
-        fullWidth
-        variant="contained"
-        color="secondary"
-        onClick={handleGoogleLogin}
+      <Grid
+        className={classes.socialLogin}
+        container
+        direction="column"
+        justify="center"
+        alignItems="center"
       >
-        google
-      </Button>
+        <Button
+          className={classes.socialButton}
+          fullWidth
+          variant="contained"
+          onClick={() => handleLogin('google')}
+        >
+          Sign in with Google
+        </Button>
+        <Button
+          className={classes.socialButton}
+          fullWidth
+          variant="contained"
+          onClick={() => handleLogin('github')}
+        >
+          Sign in with Github
+        </Button>
+      </Grid>
     </Container>
   );
 }
 
 SignIn.propTypes = {
-  handleGoogleLogin: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
 };

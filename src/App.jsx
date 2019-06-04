@@ -86,7 +86,7 @@ export default class App extends React.Component {
           <PublicRoute authed={authed} loading={loading} path="/login" component={Login} />
           <PublicRoute authed={authed} loading={loading} path="/register" component={Register} />
           <PrivateRoute authed={authed} loading={loading} path="/app/home" component={Home} />
-          <Redirect from="/" to="/login" />
+          <Redirect exact from="/" to="/login" />
           <Route render={() => <h3>No Match</h3>} />
         </Switch>
       </Router>

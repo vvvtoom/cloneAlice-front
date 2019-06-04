@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SignIn from '../components/SignIn';
-import { loginWithGoogle } from '../helpers/auth';
+import { loginWithGoogle, loginWithGithub } from '../helpers/auth';
 import { firebaseAuth } from '../config/constants';
 
 const firebaseAuthKey = 'firebaseAuthInProgress';
@@ -10,7 +10,7 @@ const appTokenKey = 'appToken';
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.handleGoogleLogin = this.handleGoogleLogin.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   componentWillMount() {
@@ -22,22 +22,31 @@ export default class Login extends React.Component {
     });
   }
 
-  handleGoogleLogin() {
+  handleLogin(option) {
     const { history } = this.props;
-    loginWithGoogle()
-      .catch(() => {
-        localStorage.removeItem(firebaseAuthKey);
-      })
-      .then(() => {
-        history.push('/login');
-      });
-    localStorage.setItem(firebaseAuthKey, '1');
+    if (option === 'google') {
+      loginWithGoogle()
+        .catch(() => {
+          window.localStorage.removeItem(firebaseAuthKey);
+        })
+        .then(() => {
+          history.push('/login');
+        });
+    } else if (option === 'github') {
+      loginWithGithub()
+        .catch(() => {
+          window.localStorage.removeItem(firebaseAuthKey);
+        })
+        .then(() => {
+          history.push('/login');
+        });
+    }
   }
 
   render() {
     const { loading } = this.props;
     if (loading) return <SplashScreen />;
-    return <SignIn handleGoogleLogin={this.handleGoogleLogin} />;
+    return <SignIn handleLogin={this.handleLogin} />;
   }
 }
 
