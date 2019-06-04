@@ -14,17 +14,10 @@ export default class Login extends React.Component {
   }
 
   componentWillMount() {
-    const { history } = this.props;
-    if (localStorage.getItem(appTokenKey)) {
-      history.push('/app/home');
-      return;
-    }
-
     firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
         localStorage.removeItem(firebaseAuthKey);
         localStorage.setItem(appTokenKey, user.uid);
-        history.push('/app/home');
       }
     });
   }
@@ -42,7 +35,8 @@ export default class Login extends React.Component {
   }
 
   render() {
-    if (localStorage.getItem(firebaseAuthKey) === '1') return <SplashScreen />;
+    const { loading } = this.props;
+    if (loading) return <SplashScreen />;
     return <SignIn handleGoogleLogin={this.handleGoogleLogin} />;
   }
 }
@@ -52,4 +46,5 @@ const SplashScreen = () => (<p>Loading...</p>);
 Login.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   history: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
