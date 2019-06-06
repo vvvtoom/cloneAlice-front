@@ -6,6 +6,7 @@ export function saveUser(user, ...rest) {
   const { firstName, lastName } = rest[0];
   return ref.child(`users/${user.uid}/info`)
     .set({
+      displayName: `${firstName} ${lastName}`,
       firstName,
       lastName,
       email: user.email,

@@ -11,6 +11,3 @@ config/constant.js 파일에 token 입력 후
 > yarn
 > yarn start
 ```
-
-
-

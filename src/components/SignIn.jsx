@@ -8,9 +8,10 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import PropTypes from 'prop-types';
 import './SignIn.css';
-import { loginWitheMail, resetPassword } from '../helpers/auth';
+import {
+  loginWitheMail, resetPassword, loginWithGoogle, loginWithGithub,
+} from '../helpers/auth';
 
 function setErrorMsg(error) {
   return {
@@ -49,7 +50,6 @@ export default class SignIn extends React.Component {
   }
 
   render() {
-    const { handleLogin } = this.props;
     const { email, password, loginMessage } = this.state;
 
     return (
@@ -122,14 +122,14 @@ export default class SignIn extends React.Component {
           <Button
             fullWidth
             variant="contained"
-            onClick={() => handleLogin('google')}
+            onClick={loginWithGoogle}
           >
             Sign in with Google
           </Button>
           <Button
             fullWidth
             variant="contained"
-            onClick={() => handleLogin('github')}
+            onClick={loginWithGithub}
           >
             Sign in with Github
           </Button>
@@ -138,7 +138,3 @@ export default class SignIn extends React.Component {
     );
   }
 }
-
-SignIn.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
-};
