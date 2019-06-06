@@ -3,11 +3,12 @@
 ---
 # 실행 스크립트
 
-config/constant.js 파일에 token 입력 후
-
 프로젝트 디렉토리에서
 
 ```sh
 > yarn
 > yarn start
 ```
+
+## 참조
+[백엔드 프로젝트](https://github.com/dimsssss/cloneAlice-back)

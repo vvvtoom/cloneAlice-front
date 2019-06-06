@@ -6,6 +6,7 @@
     "@material-ui/core": "^4.0.1",
     "firebase": "^6.1.0",
     "history": "^4.9.0",
+    "jest": "24.7.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -17,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "node node_modules/eslint/bin/eslint.js src/**/*.jsx src/**/*.js src/index.jsx src/App.jsx"
+    "lint": "node node_modules/eslint/bin/eslint.js src/components/* src/config/* src/helpers/* src/pages/* src/App.jsx src/index.jsx"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +36,10 @@
     ]
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.8.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.17.3",
